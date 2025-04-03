@@ -21,7 +21,7 @@ body {
 /* Şekilleri sol tarafta yukarıdan aşağı sıralıyoruz */
 #square { top: 20px; left: 20px; width: 200px; height: 200px; background-color: blue; }
 #triangle { top: 2000px; left: 90px; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 80px solid red; }
-#yellow-rectangle { top: 120px; left: 20px; width: 240px; height: 50px; background-color: yellow; }
-#orange-rectangle { top: 1200px; left: 20px; width: 310px; height: 30px; background-color: orange; }
-#circle { top: 360px; left: 20px; width: 200px; height: 200px; background-color: green; border-radius: 50%; }
-#brown-rectangle { top: 240px; left: 20px; width: 480px; height: 60px; background-color: brown; }
+#yellow-rectangle { top: 20px; left: 20px; width: 50px; height: 240px; background-color: yellow; }
+#orange-rectangle { top: 20px; left: 20px; width: 80px; height: 310px; background-color: orange; }
+#circle { top: 20px; left: 20px; width: 200px; height: 200px; background-color: green; border-radius: 50%; }
+#brown-rectangle { top: 20px; left: 20px; width: 90px; height: 240px; background-color: brown; }
