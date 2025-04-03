@@ -3,9 +3,9 @@ let draggedElement = null;
 let offsetX = 0, offsetY = 0;
 
 // Şekillere sürükleme olaylarını ekleyelim
-shapes.forEach((shape, index) => {
-    shape.style.top = `${20 + index * 100}px`;
+shapes.forEach(shape => {
     shape.style.left = '20px';
+    shape.style.top = `${20 + Array.from(shape.parentNode.children).indexOf(shape) * 100}px`;
 
     shape.addEventListener('mousedown', (e) => {
         startDrag(e.target, e.clientX, e.clientY);
