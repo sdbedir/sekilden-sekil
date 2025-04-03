@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     margin: 0;
     padding: 0;
@@ -15,7 +16,7 @@ body {
 .shape {
     position: absolute;
     cursor: grab;
-    touch-action: none; /* Dokunmatik kaydırmayı engelle */
+    touch-action: none;
 }
 
 /* Şekilleri sol tarafta yukarıdan aşağı sıralıyoruz */
