@@ -2,50 +2,52 @@ const shapes = document.querySelectorAll('.shape');
 let draggedElement = null;
 let offsetX = 0, offsetY = 0;
 
+// Başlangıç konumlarını rastgele belirle
 shapes.forEach(shape => {
-    shape.style.left = '20px'; // Start positions on the left side
-    shape.style.top = `${Math.random() * (window.innerHeight - 200)}px`; // Random Y position within viewport
+    shape.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
+    shape.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
 
-    // Mouse Events
+    // Mouse ile sürükleme
     shape.addEventListener('mousedown', (e) => {
-        startDrag(e.target, e.offsetX, e.offsetY);
+        startDrag(e.target, e.clientX, e.clientY);
     });
 
-    // Touch Events
+    // Dokunmatik ekranlar için sürükleme
     shape.addEventListener('touchstart', (e) => {
+        e.preventDefault();
         const touch = e.touches[0];
         const rect = e.target.getBoundingClientRect();
-        startDrag(e.target, touch.clientX - rect.left, touch.clientY - rect.top);
-    });
+        startDrag(e.target, touch.clientX, touch.clientY, rect);
+    }, { passive: false });
 });
 
+// Fare hareketlerini yakala
 document.addEventListener('mousemove', (e) => {
     if (draggedElement) {
-        dragElement(e.pageX, e.pageY);
+        dragElement(e.clientX, e.clientY);
     }
 });
 
+// Dokunmatik hareketleri yakala
 document.addEventListener('touchmove', (e) => {
     if (draggedElement) {
+        e.preventDefault();
         const touch = e.touches[0];
-        dragElement(touch.pageX, touch.pageY);
+        dragElement(touch.clientX, touch.clientY);
     }
-});
+}, { passive: false });
 
-document.addEventListener('mouseup', () => {
-    endDrag();
-});
+// Sürüklemeyi bırakınca
+document.addEventListener('mouseup', endDrag);
+document.addEventListener('touchend', endDrag);
 
-document.addEventListener('touchend', () => {
-    endDrag();
-});
-
-function startDrag(element, x, y) {
+function startDrag(element, x, y, rect = null) {
     draggedElement = element;
-    offsetX = x;
-    offsetY = y;
+    const bounding = rect || element.getBoundingClientRect();
+    offsetX = x - bounding.left;
+    offsetY = y - bounding.top;
     draggedElement.style.cursor = 'grabbing';
-    draggedElement.style.zIndex = parseInt(getComputedStyle(draggedElement).zIndex || 0) + 1;
+    draggedElement.style.zIndex = '1000';
 }
 
 function dragElement(x, y) {
