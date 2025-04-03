@@ -2,17 +2,12 @@ const shapes = document.querySelectorAll('.shape');
 let draggedElement = null;
 let offsetX = 0, offsetY = 0;
 
-// Başlangıç konumlarını rastgele belirle
+// Şekillere sürükleme olaylarını ekleyelim
 shapes.forEach(shape => {
-    shape.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
-    shape.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
-
-    // Mouse ile sürükleme
     shape.addEventListener('mousedown', (e) => {
         startDrag(e.target, e.clientX, e.clientY);
     });
 
-    // Dokunmatik ekranlar için sürükleme
     shape.addEventListener('touchstart', (e) => {
         e.preventDefault();
         const touch = e.touches[0];
@@ -21,14 +16,14 @@ shapes.forEach(shape => {
     }, { passive: false });
 });
 
-// Fare hareketlerini yakala
+// Fare ile sürükleme
 document.addEventListener('mousemove', (e) => {
     if (draggedElement) {
         dragElement(e.clientX, e.clientY);
     }
 });
 
-// Dokunmatik hareketleri yakala
+// Dokunmatik cihazlar için sürükleme
 document.addEventListener('touchmove', (e) => {
     if (draggedElement) {
         e.preventDefault();
