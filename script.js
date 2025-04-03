@@ -1,3 +1,4 @@
+/* script.js */
 const shapes = document.querySelectorAll('.shape');
 let draggedElement = null;
 let offsetX = 0, offsetY = 0;
