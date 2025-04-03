@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     margin: 0;
     padding: 0;
@@ -16,13 +15,12 @@ body {
 .shape {
     position: absolute;
     cursor: grab;
-    touch-action: none;
 }
 
 /* Şekilleri sol tarafta yukarıdan aşağı sıralıyoruz */
-#square { top: 20px; left: 20px; width: 300px; height: 300px; background-color: blue; }
-#triangle { top: 140px; left: 45px; width: 0; height: 0; border-left: 200px solid transparent; border-right: 200px solid transparent; border-bottom: 160px solid red; }
-#yellow-rectangle { top: 20px; left: 20px; width: 50px; height: 50px; background-color: yellow; }
-#orange-rectangle { top: 310px; left: 20px; width: 30px; height: 60px; background-color: orange; }
-#circle { top: 360px; left: 20px; width: 200px; height: 200px; background-color: green; border-radius: 50%; }
-#brown-rectangle { top: 480px; left: 20px; width: 60px; height: 100px; background-color: brown; }
+#square { top: 20px; left: 20px; width: 200px; height: 200px; background-color: blue; }
+#triangle { top: 240px; left: 45px; width: 0; height: 0; border-left: 115px solid transparent; border-right: 115px solid transparent; border-bottom: 150px solid red; }
+#yellow-rectangle { top: 420px; left: 20px; width: 50px; height: 80px; background-color: yellow; }
+#orange-rectangle { top: 520px; left: 20px; width: 50px; height: 40px; background-color: orange; }
+#circle { top: 590px; left: 20px; width: 150px; height: 150px; background-color: green; border-radius: 50%; }
+#brown-rectangle { top: 770px; left: 20px; width: 50px; height: 100px; background-color: brown; }
